@@ -1,0 +1,5 @@
+empleado_id,nombre,departamento_id,salario,codigo_tipo
+6,Lucía,102,22000,TP
+7,Rosa,104,18000,TP
+8,Diego,101,21000,TP
+9,Sofía,NULL,19000,TP

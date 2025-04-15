@@ -1,0 +1,3 @@
+empleado_id,nombre,departamento_id,salario,codigo_tipo
+4,Ana,103,30000,MT
+5,Carlos,NULL,25000,MT

@@ -1,0 +1,6 @@
+empleado_id,nombre,departamento_id,salario
+1,Juan,101,50000
+2,María,102,55000
+3,Pedro,101,48000
+4,Ana,103,60000
+5,Carlos,NULL,52000

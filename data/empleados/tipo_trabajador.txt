@@ -1,0 +1,4 @@
+codigo_tipo,nombre_tipo
+TC,Tiempo Completo
+MT,Medio Tiempo
+TP,Temporal

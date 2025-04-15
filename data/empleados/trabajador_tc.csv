@@ -1,0 +1,4 @@
+empleado_id,nombre,departamento_id,salario,codigo_tipo
+1,Juan,101,50000,TC
+2,María,102,55000,TC
+3,Pedro,101,48000,TC
