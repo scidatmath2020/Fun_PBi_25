@@ -1,0 +1,297 @@
+ % of All orders = 
+DIVIDE(
+    [Total Orders], 
+    [All Orders]
+)
+
+
+########################################################################
+
+% of All Returns = 
+DIVIDE(
+    [Total Returns],
+    [All Returns]
+)
+
+########################################################################
+
+10-day Rolling Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(
+        'Calendar Lookup'[Date],
+        MAX(
+            'Calendar Lookup'[Date]
+        ),
+        -10,
+        DAY
+    )
+)
+
+########################################################################
+
+90-day Rolling Profit = 
+CALCULATE(
+    [Total Profit],
+    DATESINPERIOD(
+        'Calendar Lookup'[Date],
+        LASTDATE(
+            'Calendar Lookup'[Date]
+        ),
+        -90,
+        DAY
+    )
+)
+
+########################################################################
+
+All orders = 
+CALCULATE(
+    [Total Orders], 
+    ALL(
+        'Sales Data'
+    )
+)    
+
+########################################################################
+
+All Returns = 
+CALCULATE(
+    [Total Returns],
+    ALL(
+        'Returns Data'
+    )
+)
+
+########################################################################
+
+Average Retail Price = AVERAGE('Product Lookup'[ProductPrice])
+
+########################################################################
+
+Average Revenue per Customer = 
+DIVIDE(
+    [Total Revenue], 
+    [Total Customers]
+)
+
+########################################################################
+
+Bike Return Rate = 
+CALCULATE(
+    [Return Rate],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
+
+########################################################################
+
+Bike Returns = 
+CALCULATE(
+    [Quantity Returned],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
+
+########################################################################
+
+Bike Sales = 
+CALCULATE(
+    [Quantity Sold],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
+
+########################################################################
+
+Bulk Orders = 
+CALCULATE(
+    [Total Orders],
+    'Sales Data'[OrderQuantity] > 1
+)
+
+########################################################################
+
+Global Average Price = 
+CALCULATE(
+    [Average Retail Price],
+    ALL('Product Lookup')
+    )
+
+########################################################################
+
+High Ticket Orders = 
+CALCULATE(
+    [Total Orders],
+    FILTER(
+        'Product Lookup',
+        'Product Lookup'[ProductPrice] > [Overall Average Price]
+    )
+)
+
+########################################################################
+
+Artículos Devueltos = sum('Returns Data'[ReturnQuantity])
+
+########################################################################
+
+Artículos Vendidos = sum('sales data'[OrderQuantity])
+
+########################################################################
+
+Order Target = 
+[Previous Month Orders] * 1.1
+
+########################################################################
+
+Order Target Gap = [Total Orders] - [Order Target]
+
+########################################################################
+
+Overall Average Price = 
+CALCULATE(
+    [Average Retail Price],
+    ALL(
+        'Product Lookup'
+    )
+)
+
+########################################################################
+
+Previous Month Orders = 
+CALCULATE(
+    [Total Orders],
+    DATEADD(
+        'Calendar Lookup'[Date],
+        -1,
+        MONTH
+    )
+)
+
+########################################################################
+
+Previous Month Profit = 
+CALCULATE(
+    [Total Profit],
+    DATEADD(
+        'Calendar Lookup'[Date],
+        -1,
+        MONTH
+    )
+)
+
+########################################################################
+
+Previous Month Returns = 
+CALCULATE(
+    [Total Returns],
+    DATEADD(
+        'Calendar Lookup'[Date],
+        -1,
+        MONTH
+    )
+)
+
+########################################################################
+
+Previous Month Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATEADD(
+        'Calendar Lookup'[Date],
+        -1,
+        MONTH
+    )
+) 	
+
+########################################################################
+
+Profit Target = 
+[Previous Month Profit] * 1.1
+
+########################################################################
+
+Profit Target Gap = [Total Profit] - [Profit Target]
+
+########################################################################
+
+Quantity Returned = 
+SUM(
+    'Returns Data'[ReturnQuantity]
+)
+
+########################################################################
+
+Quantity Sold = 
+SUM(
+    'Sales Data'[OrderQuantity]
+)
+
+########################################################################
+
+Return Rate = 
+DIVIDE(
+    [Quantity Returned],
+    [Quantity Sold],
+    "No Sales"
+)
+
+########################################################################
+
+Revenue Target = 
+[Previous Month Revenue] * 1.1
+
+########################################################################
+
+Revenue Target Gap = [Total Revenue] - [Revenue Target]
+
+########################################################################
+
+Total Cost = Sumx(
+    'sales data',
+    'sales data'[OrderQuantity]*RELATED('Product Lookup'[ProductCost])
+)
+
+########################################################################
+
+Total Customers = 
+DISTINCTCOUNT(
+    'Sales Data'[CustomerKey]
+)
+
+########################################################################
+
+Total Orders = DISTINCTCOUNT('sales data'[OrderNumber])
+
+########################################################################
+
+Total Profit = [Total Revenue] - [Total Cost]
+
+########################################################################
+
+Total Returns = count('Returns Data'[ReturnQuantity]) 
+
+########################################################################
+
+Total Revenue = 
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity] * RELATED(
+        'Product Lookup'[ProductPrice]
+    )
+)
+
+########################################################################
+
+Weekend orders = 
+CALCULATE(
+    [Total Orders],
+    'Calendar Lookup'[Weekend] == "WEEKEND"
+    )
+
+########################################################################
+
+YTD Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATESYTD(
+        'Calendar Lookup'[Date]
+    )
+) 
