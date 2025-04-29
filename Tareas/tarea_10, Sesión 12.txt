@@ -1,0 +1,23 @@
+Vas a copiar dos veces la kpi de monthly revenue
+
+Kpi ordenes mensuales:
+
+Valor = Total Orders
+Eje de tendencia = Inicio de mes
+Destino = Previous Month Orders
+Titulo = Monthly Orders
+Valor de Globo: Mostrar Unidades = Automático (debe aparecer 2,146)
+
+
+
+Kpi devoluciones mensuales:
+
+Valor = Total Returns
+Eje de tendencia = Inicio de mes
+Destino = Previous Month Returns
+Titulo = Monthly Returns
+Valor de Globo: Mostrar Unidades = Automático (debe aparecer 166)
+Eje de tendencia: Bajo está bien
+
+
+
